@@ -6,7 +6,8 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected int age = 0;
+    protected int age;
+
     protected String city = null;
 
     public Person(String name, String surname) {
@@ -51,10 +52,9 @@ public class Person {
         return surname;
     }
 
-//    public int getAge() {
-//        return age;
-//
-//    }
+    public int getAge() {
+        return age;
+    }
 
     public String getAddress() {
         return city;
@@ -71,12 +71,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", city='" + city + '\'' +
-                '}';
+        return "Person{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", age=" + age + ", city='" + city + '\'' + '}';
     }
 
     @Override
@@ -93,6 +88,10 @@ public class Person {
     }
 
     public PersonBuilder newChildBuilder() {
-        return new PersonBuilder();
+        return new PersonBuilder().setName(name)
+                .setSurname(getSurname())
+                .setAddress(getAddress());
+
+
     }
 }

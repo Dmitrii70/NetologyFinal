@@ -40,6 +40,11 @@ public class PersonBuilder {
     }
 
     public Person build() {
+        if (this.name == null) {
+            throw new IllegalStateException("Вы не ввели имя!");
+        } else if (this.surname == null) {
+            throw new IllegalStateException("Вы не ввели фамилию");
+        }
         return new Person(this);
     }
 }
