@@ -8,22 +8,15 @@ public class PersonBuilder {
 
 
     public PersonBuilder setName(String name) {
-        if (name == null) {
-            throw new IllegalStateException("Вы не ввели имя");
-        } else {
-            this.name = name;
-            return this;
-        }
+        this.name = name;
+        return this;
     }
 
     public PersonBuilder setSurname(String surname) {
-        if (surname == null) {
-            throw new IllegalStateException("Вы не ввели фамилию");
-        } else {
-            this.surname = surname;
-            return this;
-        }
+        this.surname = surname;
+        return this;
     }
+
 
     public PersonBuilder setAge(int age) {
         if (age < 0 || age > 200) {
