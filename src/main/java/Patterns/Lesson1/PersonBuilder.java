@@ -1,10 +1,13 @@
 package Patterns.Lesson1;
 
+import java.util.OptionalInt;
+
 public class PersonBuilder {
     protected String name = null;
     protected String surname = null;
-    protected int age;
+    protected OptionalInt age = OptionalInt.empty();
     protected String city;
+
 
 
     public PersonBuilder setName(String name) {
@@ -18,11 +21,11 @@ public class PersonBuilder {
     }
 
 
-    public PersonBuilder setAge(int age) {
+    public PersonBuilder setAge(Integer age) {
         if (age < 0 || age > 200) {
             throw new IllegalArgumentException("Вы ввели недопустимый возраст");
         } else {
-            this.age = age;
+            this.age = OptionalInt.of(age);
             return this;
         }
     }

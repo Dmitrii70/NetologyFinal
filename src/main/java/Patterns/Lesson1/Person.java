@@ -6,7 +6,7 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected int age;
+    protected OptionalInt age;
 
     protected String city = null;
 
@@ -15,10 +15,10 @@ public class Person {
         this.surname = surname;
     }
 
-    public Person(String name, String surname, int age) {
+    public Person(String name, String surname, Integer age) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.age = OptionalInt.of(age);
     }
 
     protected Person(PersonBuilder builder) {
@@ -29,11 +29,8 @@ public class Person {
     }
 
 
-    public boolean hasAge(int age) {
-        if (age == 0) {
-            return false;
-        }
-        return true;
+    public boolean hasAge(OptionalInt age) {
+        return age.isEmpty();
     }
 
     public boolean hasAddress() {
@@ -52,7 +49,7 @@ public class Person {
         return surname;
     }
 
-    public int getAge() {
+    public OptionalInt getAge() {
         return age;
     }
 
@@ -64,10 +61,14 @@ public class Person {
         this.city = city;
     }
 
-    public void happyBirthday() {
-        age++;
+    public void setAge(int age) {
+        this.age = OptionalInt.of(age);
     }
 
+    public void happyBirthday() {
+        int newAge = age.getAsInt() + 1;
+        setAge(newAge);
+    }
 
     @Override
     public String toString() {
@@ -91,7 +92,5 @@ public class Person {
         return new PersonBuilder().setName(name)
                 .setSurname(getSurname())
                 .setAddress(getAddress());
-
-
     }
 }
