@@ -6,7 +6,7 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected OptionalInt age;
+    protected OptionalInt age = OptionalInt.empty();
 
     protected String city = null;
 

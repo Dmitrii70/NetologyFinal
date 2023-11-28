@@ -8,8 +8,6 @@ public class PersonBuilder {
     protected OptionalInt age = OptionalInt.empty();
     protected String city;
 
-
-
     public PersonBuilder setName(String name) {
         this.name = name;
         return this;
@@ -19,7 +17,6 @@ public class PersonBuilder {
         this.surname = surname;
         return this;
     }
-
 
     public PersonBuilder setAge(Integer age) {
         if (age < 0 || age > 200) {
