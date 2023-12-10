@@ -19,12 +19,12 @@ public class PersonBuilder {
     }
 
     public PersonBuilder setAge(Integer age) {
-        if (age < 0 || age > 200) {
-            throw new IllegalArgumentException("Вы ввели недопустимый возраст");
-        } else {
-            this.age = OptionalInt.of(age);
+//        if (age < 0 || age > 200) {
+//            throw new IllegalArgumentException("Вы ввели недопустимый возраст");
+//        } else {
+//            this.age = OptionalInt.of(age);
             return this;
-        }
+//        }
     }
 
     public PersonBuilder setAddress(String city) {
@@ -33,11 +33,11 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        if (this.name == null) {
-            throw new IllegalStateException("Вы не ввели имя!");
-        } else if (this.surname == null) {
-            throw new IllegalStateException("Вы не ввели фамилию");
-        }
+//        if (this.name == null) {
+//            throw new IllegalStateException("Вы не ввели имя!");
+//        } else if (this.surname == null) {
+//            throw new IllegalStateException("Вы не ввели фамилию");
+//        }
         return new Person(this);
     }
 }
